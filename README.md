@@ -4,7 +4,8 @@
 [![HTML5](https://img.shields.io/badge/HTML5-Semântico-orange?logo=html5&logoColor=white)](.)
 [![CSS3](https://img.shields.io/badge/CSS3-Custom%20Properties-blue?logo=css3&logoColor=white)](.)
 [![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla%20ES6-yellow?logo=javascript&logoColor=black)](.)
-[![AZ-900](https://img.shields.io/badge/Microsoft-AZ--900-0078D4?logo=microsoftazure&logoColor=white)](.)
+[![AZ-900](https://img.shields.io/badge/Microsoft-AZ--900-0078D4?logo=microsoftazure&logoColor=white)](.) 
+[![Licença](https://img.shields.io/badge/Licença-CC%20BY--NC%204.0-lightgrey?logo=creativecommons&logoColor=white)](./LICENSE)
 
 > Landing Page profissional desenvolvida com **HTML5 semântico**, **CSS3** e **JavaScript vanilla** — sem frameworks.
 
@@ -61,6 +62,15 @@ portfolio/
 | Imersão Digital — Skills do Futuro (125h) | Santander · Alura · FIAP | Jul/2026 |
 | English for IT: Describing and Comparing | Cisco Networking Academy | Fev/2026 |
 | Pensamento Computacional (6h) | Fundação Bradesco | Jun/2025 |
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
+
+Você pode usar como referência de aprendizado com atribuição. Uso comercial e reprodução completa são proibidos.
+Consulte o arquivo [LICENSE](./LICENSE) para mais detalhes.
 
 ---
 
