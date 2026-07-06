@@ -5,51 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfólio de Matheus de Souza Siqueira — Estudante de ADS, certificado Azure AZ-900, focado em Cloud Computing e DevOps." />
   <title>Matheus Siqueira | Cloud & DevOps</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════
-       HEADER — nome, frase, foto + nav (req. MAPA)
-  ═══════════════════════════════════════════ -->
   <header>
 
-    <nav class="nav-bar" aria-label="Navegação principal">
-      <div class="container nav-inner">
-        <span class="nav-logo">MatheusSSiqueira</span>
-        <ul id="navLinks">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#formacao">Formação</a></li>
-          <li><a href="#habilidades">Skills</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#extras">Extras</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-        <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+    <!-- Nav sticky full-width — sem logo, só links -->
+    <nav id="navBar">
+      <ul class="container" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#habilidades">Skills</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
     </nav>
 
     <div class="hero container">
       <img class="avatar" src="Matheus.jpg" alt="Foto de Matheus de Souza Siqueira" />
       <h1 class="hero-name">Matheus <span class="hl">Siqueira</span></h1>
-      <!-- Frase animada via typewriter em script.js -->
+      <!-- Typewriter — frases animadas via script.js -->
       <p class="hero-tagline" id="typewriter" aria-live="polite"></p>
       <p class="hero-role">Estudante de ADS &nbsp;·&nbsp; <strong>Cloud & DevOps</strong> &nbsp;·&nbsp; Nova Iguaçu, RJ</p>
       <p class="hero-bio">
-        Gerencio o ecossistema de TI de uma operação de varejo — sistemas de PDV,
-        governança de ativos e otimização de ambientes Windows. Estudante de ADS na
-        <strong>Unicesumar</strong>, certificado <strong>Azure AZ-900</strong>,
-        com foco em Cloud Computing, DevOps e Infraestrutura como Código.
+        Profissional de TI com experiência corporativa em infraestrutura e sistemas,
+        em transição para Cloud & DevOps. Certificado <strong>Azure AZ-900</strong>
+        e estudante de ADS na Unicesumar.
       </p>
       <div class="hero-cta">
-        <a href="https://www.linkedin.com/in/matheus-de-souza-siqueira" target="_blank" rel="noopener" class="btn btn-primary">
+        <a href="https://www.linkedin.com/in/matheus-de-souza-siqueira" target="_blank" rel="noopener" class="btn btn-outline">
           <i class="fa-brands fa-linkedin"></i> LinkedIn
         </a>
         <a href="https://github.com/MatheusSSiqueira" target="_blank" rel="noopener" class="btn btn-outline">
@@ -60,68 +49,28 @@
 
   </header>
 
-  <!-- ═══════════════════════════════════════════
-       MAIN — corpo principal (req. MAPA)
-  ═══════════════════════════════════════════ -->
   <main>
 
-    <!-- Sobre mim -->
+    <!-- Sobre -->
     <section id="sobre" class="container reveal">
       <p class="section-label">// sobre mim</p>
       <h2>Quem sou eu</h2>
       <p class="section-text">
-        Profissional em transição e consolidação na área de Infraestrutura em Nuvem e
-        cultura DevOps. Combino base teórica sólida em <strong>Análise e Desenvolvimento
-        de Sistemas</strong> com aplicação prática real: atualmente gerencio o
-        ecossistema de TI de uma operação de varejo, atuando no gerenciamento de
-        <strong>sistemas de PDV</strong>, governança de ativos de TI e otimização de
-        performance de sistemas Windows — mitigando riscos operacionais e reduzindo
-        indisponibilidades no dia a dia.
-      </p>
-      <p class="section-text" style="margin-top:-1.5rem">
-        Apaixonado por automação com Python, arquitetura de redes e infraestrutura ágil.
-        Acredito que bom trabalho em TI não termina no <code>git push</code> — termina
-        em produção, estável, monitorado e funcionando.
+        Sou Matheus, baseado em Nova Iguaçu, RJ. Atuo na área de TI corporativo
+        — infraestrutura, sistemas de PDV e governança de ativos — e direciono
+        minha carreira para <strong>Cloud Computing e DevOps</strong>. Apaixonado
+        por automação com Python, arquitetura de redes e infraestrutura ágil.
       </p>
 
-      <!-- Contadores animados via script.js -->
+      <!-- Contadores — GitHub API atualiza repos em tempo real -->
       <div class="stats-row">
         <div class="stat reveal">
           <span class="stat-n" data-target="4">0</span>
           <span class="stat-label">Certificações</span>
         </div>
         <div class="stat reveal">
-          <!-- data-key="repos" → atualizado pela GitHub API em script.js -->
           <span class="stat-n" data-target="12" data-key="repos">0</span>
           <span class="stat-label">Repositórios</span>
-        </div>
-        <div class="stat reveal">
-          <span class="stat-n" data-target="125">0</span>
-          <span class="stat-label">Horas · Santander</span>
-        </div>
-      </div>
-
-      <!-- Experiência atual — destaque da bio do LinkedIn -->
-      <div class="exp-card reveal">
-        <div class="exp-header">
-          <div>
-            <span class="exp-badge">💼 Atual</span>
-            <h3 class="exp-title">Gestão de TI — Varejo</h3>
-          </div>
-          <span class="exp-period">Em andamento</span>
-        </div>
-        <ul class="exp-list">
-          <li>Gerenciamento de sistemas de <strong>PDV</strong> e infraestrutura de loja</li>
-          <li>Governança de ativos de TI e controle de inventário</li>
-          <li>Otimização de performance de desktops Windows — redução de indisponibilidades</li>
-          <li>Suporte e manutenção de ambiente corporativo Windows</li>
-        </ul>
-        <div class="tags" style="margin-top:0.75rem">
-          <span class="tag">Windows</span>
-          <span class="tag">PDV</span>
-          <span class="tag">IT Governance</span>
-          <span class="tag">Suporte</span>
-          <span class="tag">Redes</span>
         </div>
       </div>
     </section>
@@ -133,7 +82,6 @@
 
       <div class="cert-grid">
 
-        <!-- Graduação -->
         <div class="cert-card reveal">
           <div class="cert-icon">🎓</div>
           <div class="cert-body">
@@ -144,53 +92,46 @@
           </div>
         </div>
 
-        <!-- AZ-900 -->
         <div class="cert-card reveal">
           <div class="cert-icon">🏅</div>
           <div class="cert-body">
             <span class="cert-type">Certificação Microsoft</span>
             <h3>Azure Fundamentals — AZ-900</h3>
             <p class="cert-issuer">Microsoft Certified</p>
-            <p class="cert-date">Obtido em: 11 de abril de 2026</p>
+            <p class="cert-date">11 de abril de 2026</p>
             <p class="cert-id">ID: CDF57127227229A9</p>
-            <a
-              href="https://learn.microsoft.com/pt-br/certifications/azure-fundamentals/"
-              target="_blank" rel="noopener"
-              class="cert-link"
-            >Verificar ↗</a>
+            <a href="https://learn.microsoft.com/pt-br/certifications/azure-fundamentals/"
+               target="_blank" rel="noopener" class="cert-link">Verificar ↗</a>
           </div>
         </div>
 
-        <!-- Santander -->
         <div class="cert-card reveal">
           <div class="cert-icon">🚀</div>
           <div class="cert-body">
-            <span class="cert-type">Bootcamp · 125 horas</span>
+            <span class="cert-type">Bootcamp · 125 h</span>
             <h3>Santander Imersão Digital</h3>
             <p class="cert-issuer">Santander · Alura · FIAP</p>
-            <p class="cert-date">Trilha Skills do Futuro · Jul/2026</p>
+            <p class="cert-date">Skills do Futuro · Jul/2026</p>
           </div>
         </div>
 
-        <!-- Cisco -->
         <div class="cert-card reveal">
           <div class="cert-icon">🌐</div>
           <div class="cert-body">
-            <span class="cert-type">Certificado Cisco</span>
+            <span class="cert-type">Cisco Networking Academy</span>
             <h3>English for IT: Describing and Comparing</h3>
-            <p class="cert-issuer">Cisco Networking Academy · OpenEDG</p>
-            <p class="cert-date">Emitido em: 28 de fevereiro de 2026</p>
+            <p class="cert-issuer">Cisco · OpenEDG</p>
+            <p class="cert-date">28 de fevereiro de 2026</p>
           </div>
         </div>
 
-        <!-- Bradesco -->
         <div class="cert-card reveal">
           <div class="cert-icon">🧠</div>
           <div class="cert-body">
-            <span class="cert-type">Curso · 6 horas</span>
+            <span class="cert-type">Curso · 6 h</span>
             <h3>Pensamento Computacional</h3>
             <p class="cert-issuer">Fundação Bradesco — Escola Virtual</p>
-            <p class="cert-date">Concluído em: 21 de junho de 2025</p>
+            <p class="cert-date">21 de junho de 2025</p>
           </div>
         </div>
 
@@ -202,40 +143,42 @@
       <p class="section-label">// habilidades</p>
       <h2>Stack Técnica</h2>
       <div class="skills-grid">
+
         <div class="skill-group reveal">
           <p class="skill-title">☁️ Cloud & DevOps</p>
           <div class="tags">
-            <span class="tag">Microsoft Azure</span>
+            <span class="tag">Azure</span>
             <span class="tag">AZ-900</span>
             <span class="tag">IaaS / PaaS</span>
             <span class="tag">GitHub Actions</span>
             <span class="tag">CI/CD</span>
             <span class="tag">Docker</span>
-            <span class="tag">IaC</span>
           </div>
         </div>
+
         <div class="skill-group reveal">
           <p class="skill-title">🖥️ Infraestrutura</p>
           <div class="tags">
             <span class="tag">Windows</span>
             <span class="tag">Windows Server</span>
             <span class="tag">Linux</span>
-            <span class="tag">Bash</span>
             <span class="tag">Redes</span>
             <span class="tag">PDV</span>
             <span class="tag">IT Governance</span>
           </div>
         </div>
+
         <div class="skill-group reveal">
-          <p class="skill-title">💻 Linguagens</p>
+          <p class="skill-title">💻 Linguagens & Base</p>
           <div class="tags">
             <span class="tag">C</span>
             <span class="tag">Python</span>
             <span class="tag">JavaScript</span>
-            <span class="tag">HTML5 / CSS3</span>
+            <span class="tag">Bash</span>
             <span class="tag">SQL</span>
           </div>
         </div>
+
         <div class="skill-group reveal">
           <p class="skill-title">🔧 Ferramentas</p>
           <div class="tags">
@@ -243,9 +186,9 @@
             <span class="tag">GitHub</span>
             <span class="tag">GitHub Copilot</span>
             <span class="tag">VS Code</span>
-            <span class="tag">Azure CLI</span>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -256,145 +199,69 @@
       <div class="projects-grid">
 
         <article class="project-card reveal">
-          <div class="project-top">
-            <i class="fa-solid fa-database project-ico" aria-hidden="true"></i>
-            <a href="https://github.com/MatheusSSiqueira/Estrutura-de-Dados-Fundamentos"
-               target="_blank" rel="noopener" class="project-link" aria-label="Ver no GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </div>
           <h3>Estrutura de Dados / Fundamentos</h3>
-          <p>Implementação de listas ligadas, pilhas, filas e árvores binárias em C, com análise de complexidade Big-O e documentação técnica.</p>
-          <div class="project-tech">
-            <span class="tag">C</span>
-            <span class="tag">Algoritmos</span>
-            <span class="tag">Big-O</span>
+          <p>Implementação de listas ligadas, pilhas, filas e árvores binárias em C, com análise de complexidade Big-O.</p>
+          <div class="tags" style="margin-bottom:1rem">
+            <span class="tag">C</span><span class="tag">Algoritmos</span><span class="tag">Big-O</span>
           </div>
+          <a href="https://github.com/MatheusSSiqueira/Estrutura-de-Dados-Fundamentos"
+             target="_blank" rel="noopener" class="project-link">
+            <i class="fa-brands fa-github"></i> Acessar repositório ↗
+          </a>
         </article>
 
         <article class="project-card reveal">
-          <div class="project-top">
-            <i class="fa-solid fa-leaf project-ico" aria-hidden="true"></i>
-            <a href="https://github.com/MatheusSSiqueira/dio_carbon-calculator"
-               target="_blank" rel="noopener" class="project-link" aria-label="Ver no GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </div>
           <h3>Calculadora de Emissão de Carbono</h3>
-          <p>Aplicação web criada com GitHub Copilot no bootcamp DIO. Calcula pegada de carbono — tema alinhado a Green IT e Azure Sustainability.</p>
-          <div class="project-tech">
-            <span class="tag">JavaScript</span>
-            <span class="tag">GitHub Copilot</span>
-            <span class="tag">Green IT</span>
+          <p>Aplicação web desenvolvida com GitHub Copilot no bootcamp DIO, focada em métricas de sustentabilidade e Green IT.</p>
+          <div class="tags" style="margin-bottom:1rem">
+            <span class="tag">JavaScript</span><span class="tag">GitHub Copilot</span><span class="tag">Green IT</span>
           </div>
+          <a href="https://github.com/MatheusSSiqueira/dio_carbon-calculator"
+             target="_blank" rel="noopener" class="project-link">
+            <i class="fa-brands fa-github"></i> Acessar repositório ↗
+          </a>
         </article>
 
         <article class="project-card reveal">
-          <div class="project-top">
-            <i class="fa-solid fa-code project-ico" aria-hidden="true"></i>
-            <a href="https://github.com/MatheusSSiqueira/Desafio-Escrevendo-as-Classes-de-Um-Jogo"
-               target="_blank" rel="noopener" class="project-link" aria-label="Ver no GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </div>
           <h3>Classes de um Jogo — OOP</h3>
-          <p>Desafio DIO com foco em Programação Orientada a Objetos: herança, encapsulamento e polimorfismo em JavaScript.</p>
-          <div class="project-tech">
-            <span class="tag">JavaScript</span>
-            <span class="tag">OOP</span>
-            <span class="tag">DIO</span>
+          <p>Desafio DIO de Programação Orientada a Objetos: modelagem de personagens com herança, encapsulamento e polimorfismo em JavaScript.</p>
+          <div class="tags" style="margin-bottom:1rem">
+            <span class="tag">JavaScript</span><span class="tag">OOP</span><span class="tag">DIO</span>
           </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-top">
-            <i class="fa-solid fa-globe project-ico" aria-hidden="true"></i>
-            <a href="https://github.com/MatheusSSiqueira"
-               target="_blank" rel="noopener" class="project-link" aria-label="Ver no GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </div>
-          <h3>Portfólio Profissional</h3>
-          <p>Esta landing page — desenvolvida com HTML5 semântico, CSS3 e JavaScript vanilla. Funcionalidades: typewriter, scroll reveal, contador, GitHub API.</p>
-          <div class="project-tech">
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3</span>
-            <span class="tag">JavaScript</span>
-          </div>
+          <a href="https://github.com/MatheusSSiqueira/Desafio-Escrevendo-as-Classes-de-Um-Jogo"
+             target="_blank" rel="noopener" class="project-link">
+            <i class="fa-brands fa-github"></i> Acessar repositório ↗
+          </a>
         </article>
 
       </div>
     </section>
 
-    <!-- ASIDE — curiosidades, hobbies e links (req. MAPA) -->
-    <aside id="extras" class="container reveal" aria-label="Informações extras">
-      <p class="section-label">// extras</p>
-      <h2>Curiosidades & Links</h2>
-
-      <div class="aside-grid">
-
-        <div class="aside-card reveal">
-          <p class="aside-title">🎯 Interesses</p>
-          <ul>
-            <li>Cloud Computing e arquitetura Azure</li>
-            <li>Automação de infraestrutura (IaC, CI/CD)</li>
-            <li>Open Source e comunidades de tecnologia</li>
-            <li>Inglês técnico para TI</li>
-          </ul>
-        </div>
-
-        <div class="aside-card reveal">
-          <p class="aside-title">📈 Próximos passos</p>
-          <ul>
-            <li>Certificação AZ-104 (Azure Administrator)</li>
-            <li>Terraform — Infraestrutura como Código</li>
-            <li>Kubernetes e orquestração de containers</li>
-            <li>Projetos hands-on no Azure</li>
-          </ul>
-        </div>
-
-        <div class="aside-card reveal">
-          <p class="aside-title">🔗 Links úteis</p>
-          <div class="aside-links">
-            <a href="https://github.com/MatheusSSiqueira" target="_blank" rel="noopener" class="aside-link">
-              <i class="fa-brands fa-github"></i> MatheusSSiqueira
-            </a>
-            <a href="https://www.linkedin.com/in/matheus-de-souza-siqueira" target="_blank" rel="noopener" class="aside-link">
-              <i class="fa-brands fa-linkedin"></i> matheus-de-souza-siqueira
-            </a>
-            <a href="https://learn.microsoft.com/pt-br/certifications/azure-fundamentals/" target="_blank" rel="noopener" class="aside-link">
-              <i class="fa-solid fa-certificate"></i> Certificação AZ-900
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </aside>
-
   </main>
 
-  <!-- ═══════════════════════════════════════════
-       FOOTER — e-mail + copyright (req. MAPA)
-  ═══════════════════════════════════════════ -->
+  <!-- Footer -->
   <footer id="contato">
     <div class="container">
-      <p class="footer-contact">
-        Entre em contato:
-        <a href="mailto:matheuspaivasiqueira@gmail.com">matheuspaivasiqueira@gmail.com</a>
-      </p>
       <div class="footer-social">
-        <a href="https://github.com/MatheusSSiqueira" target="_blank" rel="noopener" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/matheus-de-souza-siqueira" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/matheus-de-souza-siqueira"
+           target="_blank" rel="noopener" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin"></i>
         </a>
+        <a href="https://github.com/MatheusSSiqueira"
+           target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="mailto:matheuspaivasiqueira@gmail.com" aria-label="E-mail">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
       </div>
+      <p class="footer-email">
+        <a href="mailto:matheuspaivasiqueira@gmail.com">matheuspaivasiqueira@gmail.com</a>
+      </p>
       <p class="copyright">© 2026 Matheus de Souza Siqueira · Nova Iguaçu, RJ</p>
     </div>
   </footer>
 
-  <!-- Botão voltar ao topo (controlado por script.js) -->
   <button class="back-top" id="backTop" aria-label="Voltar ao topo">
     <i class="fa-solid fa-chevron-up"></i>
   </button>

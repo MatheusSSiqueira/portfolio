@@ -1,9 +1,8 @@
 'use strict';
 
-/* ═══════════════════════════════════════════════════════
+/* ──────────────────────────────────────────────────
    1. TYPEWRITER — cicla frases no hero
-   Escreve, pausa, apaga e passa para a próxima frase.
-═══════════════════════════════════════════════════════ */
+────────────────────────────────────────────────── */
 const phrases = [
   '"Cloud Computing | DevOps | Infraestrutura como Código."',
   '"Do ambiente corporativo à nuvem Azure."',
@@ -11,182 +10,124 @@ const phrases = [
   '"Construindo a ponte entre código e nuvem."',
 ];
 
-let phraseIdx = 0;
-let charIdx   = 0;
-let deleting  = false;
+let phraseIdx = 0, charIdx = 0, deleting = false;
 const typeEl  = document.getElementById('typewriter');
 
 function type() {
   if (!typeEl) return;
-
   const current = phrases[phraseIdx];
+  typeEl.textContent = deleting
+    ? current.substring(0, charIdx - 1)
+    : current.substring(0, charIdx + 1);
 
-  if (deleting) {
-    typeEl.textContent = current.substring(0, charIdx - 1);
-    charIdx--;
-  } else {
-    typeEl.textContent = current.substring(0, charIdx + 1);
-    charIdx++;
-  }
+  deleting ? charIdx-- : charIdx++;
 
   let delay = deleting ? 35 : 75;
-
-  if (!deleting && charIdx === current.length) {
-    delay    = 2200;   // pausa antes de apagar
-    deleting = true;
-  } else if (deleting && charIdx === 0) {
-    deleting  = false;
-    phraseIdx = (phraseIdx + 1) % phrases.length;
-    delay     = 450;
-  }
+  if (!deleting && charIdx === current.length) { delay = 2200; deleting = true; }
+  else if (deleting && charIdx === 0) { deleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; delay = 400; }
 
   setTimeout(type, delay);
 }
-
 type();
 
 
-/* ═══════════════════════════════════════════════════════
-   2. MOBILE BURGER — abre/fecha menu em telas pequenas
-═══════════════════════════════════════════════════════ */
-const burger   = document.getElementById('burger');
-const navLinks = document.getElementById('navLinks');
-
-if (burger && navLinks) {
-  burger.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    burger.classList.toggle('active', isOpen);
-    burger.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  // Fecha ao clicar em um link (UX mobile)
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      burger.classList.remove('active');
-      burger.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-
-/* ═══════════════════════════════════════════════════════
-   3. NAV SHADOW — sombra ao rolar a página
-═══════════════════════════════════════════════════════ */
-const navBar = document.querySelector('.nav-bar');
-
+/* ──────────────────────────────────────────────────
+   2. NAV SHADOW — sombra ao rolar
+────────────────────────────────────────────────── */
+const nav = document.getElementById('navBar');
 window.addEventListener('scroll', () => {
-  if (navBar) navBar.classList.toggle('scrolled', window.scrollY > 10);
+  nav?.classList.toggle('scrolled', window.scrollY > 10);
 }, { passive: true });
 
 
-/* ═══════════════════════════════════════════════════════
-   4. SCROLL REVEAL — anima elementos ao entrar no viewport
-   Adicione class="reveal" a qualquer elemento no HTML.
-═══════════════════════════════════════════════════════ */
-const revealEls = document.querySelectorAll('.reveal');
-
+/* ──────────────────────────────────────────────────
+   3. SCROLL REVEAL — fade-in ao entrar no viewport
+────────────────────────────────────────────────── */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      // Stagger leve: cada elemento atrasa um pouco mais que o anterior
-      setTimeout(() => entry.target.classList.add('visible'), i * 70);
+      setTimeout(() => entry.target.classList.add('visible'), i * 65);
       revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
 
-revealEls.forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 
-/* ═══════════════════════════════════════════════════════
-   5. CONTADOR ANIMADO — incrementa números ao entrar no viewport
-   Use data-target="N" no elemento <span class="stat-n">.
-═══════════════════════════════════════════════════════ */
-function animateCount(el, target, duration = 1300) {
+/* ──────────────────────────────────────────────────
+   4. CONTADOR ANIMADO — incrementa com easing
+────────────────────────────────────────────────── */
+function animateCount(el, target, duration = 1200) {
   const start = performance.now();
-
-  function update(now) {
-    const elapsed  = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased    = 1 - Math.pow(1 - progress, 3); // ease-out cúbico
-    el.textContent = Math.round(eased * target);
-    if (progress < 1) requestAnimationFrame(update);
-  }
-
-  requestAnimationFrame(update);
+  (function update(now) {
+    const p = Math.min((now - start) / duration, 1);
+    el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+    if (p < 1) requestAnimationFrame(update);
+    else el.classList.add('counted');
+  })(start);
 }
-
-const counters = document.querySelectorAll('.stat-n[data-target]');
 
 const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const el     = entry.target;
-      const target = parseInt(el.getAttribute('data-target'), 10);
-      animateCount(el, target);
+      const el = entry.target;
+      animateCount(el, parseInt(el.dataset.target, 10));
       counterObserver.unobserve(el);
     }
   });
 }, { threshold: 0.5 });
 
-counters.forEach(el => counterObserver.observe(el));
+document.querySelectorAll('.stat-n[data-target]').forEach(el => counterObserver.observe(el));
 
 
-/* ═══════════════════════════════════════════════════════
-   6. ACTIVE NAV — destaca o link da seção visível
-═══════════════════════════════════════════════════════ */
-const sections = document.querySelectorAll('section[id], aside[id]');
+/* ──────────────────────────────────────────────────
+   5. ACTIVE NAV — destaca seção visível
+────────────────────────────────────────────────── */
 const navItems = document.querySelectorAll('#navLinks a');
 
-const sectionObserver = new IntersectionObserver((entries) => {
+new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = entry.target.id;
-      navItems.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-      });
+      navItems.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
     }
   });
-}, { rootMargin: '-40% 0px -55% 0px' });
+}, { rootMargin: '-40% 0px -55% 0px' })
+.observe && document.querySelectorAll('section[id], footer[id]')
+  .forEach(s => new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting)
+        navItems.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${e.target.id}`));
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' }).observe(s));
 
-sections.forEach(s => sectionObserver.observe(s));
 
-
-/* ═══════════════════════════════════════════════════════
-   7. BACK TO TOP — botão aparece após 400px de scroll
-═══════════════════════════════════════════════════════ */
+/* ──────────────────────────────────────────────────
+   6. BACK TO TOP — aparece após 400px de scroll
+────────────────────────────────────────────────── */
 const backTop = document.getElementById('backTop');
-
 window.addEventListener('scroll', () => {
-  if (backTop) backTop.classList.toggle('visible', window.scrollY > 400);
+  backTop?.classList.toggle('visible', window.scrollY > 400);
 }, { passive: true });
-
-if (backTop) {
-  backTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
+backTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 
-/* ═══════════════════════════════════════════════════════
-   8. GITHUB API — busca contagem real de repositórios
-   Atualiza o contador com data-key="repos" em tempo real.
-   Falha silenciosamente se a API estiver com rate limit.
-═══════════════════════════════════════════════════════ */
+/* ──────────────────────────────────────────────────
+   7. GITHUB API — atualiza contagem de repos em tempo real
+   Conecta ao README principal do perfil MatheusSSiqueira
+────────────────────────────────────────────────── */
 const repoEl = document.querySelector('.stat-n[data-key="repos"]');
 
 if (repoEl) {
   fetch('https://api.github.com/users/MatheusSSiqueira')
-    .then(res => res.ok ? res.json() : null)
+    .then(r => r.ok ? r.json() : null)
     .then(data => {
-      if (data && data.public_repos !== undefined) {
-        repoEl.setAttribute('data-target', data.public_repos);
-        // Re-anima com o valor real (se o elemento já foi animado, atualiza direto)
-        if (repoEl.classList.contains('counted')) {
-          repoEl.textContent = data.public_repos;
-        }
-      }
+      if (!data) return;
+      const real = data.public_repos;
+      repoEl.dataset.target = real;
+      // Se o contador já rodou, atualiza direto
+      if (repoEl.classList.contains('counted')) repoEl.textContent = real;
     })
-    .catch(() => { /* falha silenciosa */ });
+    .catch(() => {}); // falha silenciosa — mantém valor padrão
 }
