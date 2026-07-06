@@ -334,7 +334,7 @@ nav ul a:hover::after { width: 100%; }
 
 /* ── FOOTER ──────────────────────────────────── */
 footer {
-  padding: 2.5rem 0;
+  padding: 1.25rem 0;
   border-top: 1px solid var(--border);
   background: var(--surface);
   text-align: center;
